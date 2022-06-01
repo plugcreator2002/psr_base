@@ -1,4 +1,10 @@
 export './logger.dart';
-export './extensions/validators.dart';
 export './helpers_sanitizer.dart';
 export './operations_related/index.dart';
+export './check_device.dart';
+export './directoreis_related/index.dart';
+export './manage_permission.dart';
+export './formatters/index.dart';
+export './utility_number.dart';
+export './extensions/index.dart';
+export './popups/index.dart';

@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
 import 'package:psr_base/controllers/index.dart' show ShakeController;
-import 'package:psr_base/ui_related/index.dart' show AnimationBuilder;
+import 'package:psr_base/index.dart' show AnimationBuilder, SafeState;
 
+/// * Define only [ShakeWidget] as the parent of your widget
 class ShakeWidget extends StatefulWidget {
   final String? id;
   final Duration duration;
@@ -21,10 +22,10 @@ class ShakeWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<ShakeWidget> createState() => _State();
+  SafeState<ShakeWidget> createState() => _S();
 }
 
-class _State extends State<ShakeWidget> with SingleTickerProviderStateMixin {
+class _S extends SafeState<ShakeWidget> with SingleTickerProviderStateMixin {
   double maxShake = 0;
   late final Animation<double> _animation;
   late final AnimationController _animationControl;
@@ -58,7 +59,7 @@ class _State extends State<ShakeWidget> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     if (widget.controller == null || widget.id == null) return widget.child;
-    return AnimationBuilder<double>(
+    return AnimationBuilder<double, Widget>(
       key: widget.key,
       animation: _animation,
       builder: (context, animation, child) => Transform.translate(
