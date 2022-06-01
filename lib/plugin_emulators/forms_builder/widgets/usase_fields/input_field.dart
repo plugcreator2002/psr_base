@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:psr_base/plugin_emulators/forms_builder/widgets/base_fields/form_builder_input_field.dart';
+import 'package:psr_base/ui_related/feilds_title.dart';
 
 class InputField extends StatefulWidget {
   final void Function(String content) onChanged;
@@ -139,12 +140,12 @@ class _InputFieldState extends State<InputField> {
         return Column(
           children: [
             if (widget.title != null) ...[
-              // FieldsTitle(
-              //   name: widget.name,
-              //   title: widget.title,
-              //   isValid: isValid,
-              //   controller: shaker,
-              // ),
+              FieldsTitle(
+                name: widget.name,
+                title: widget.title,
+                isValid: isValid,
+                controller: shaker,
+              ),
             ],
             ClipRRect(
               borderRadius: const BorderRadius.vertical(
