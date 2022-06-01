@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:psr_base/plugin_emulators/forms_builder/widgets/parent_feilds/form_builder_custom.dart';
+import 'package:psr_base/plugin_emulators/forms_builder/widgets/base_fields/form_builder_custom.dart';
 
 enum WidgetType { input, other }
 
 /// u must fill in the field data [T]
-class CustomFeild<T> extends StatelessWidget {
+class CustomField<T> extends StatelessWidget {
   final WidgetType widgetType;
   final String name;
 
@@ -20,7 +20,7 @@ class CustomFeild<T> extends StatelessWidget {
 
   /// Define any widget you want to validate in Child
   final Widget Function(StateBuilder<T>) child;
-  const CustomFeild({
+  const CustomField({
     Key? key,
     required this.name,
     required this.data,

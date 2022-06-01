@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:psr_base/plugin_emulators/forms_builder/widgets/parent_feilds/form_builder_input_field.dart';
+import 'package:psr_base/plugin_emulators/forms_builder/widgets/base_fields/form_builder_input_field.dart';
 
-class InputFeild extends StatefulWidget {
+class InputField extends StatefulWidget {
   final void Function(String content) onChanged;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
@@ -22,7 +22,7 @@ class InputFeild extends StatefulWidget {
   final int? maxLength;
   final String? hintText;
   final TextStyle? style;
-  const InputFeild({
+  const InputField({
     Key? key,
     required this.onChanged,
     this.prefixIcon,
@@ -44,14 +44,14 @@ class InputFeild extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<InputFeild> createState() => _InputFeildState(obscureText);
+  State<InputField> createState() => _InputFieldState(obscureText);
 }
 
-class _InputFeildState extends State<InputFeild> {
+class _InputFieldState extends State<InputField> {
   final controller = TextEditingController();
   bool obscure = false;
 
-  _InputFeildState(bool obscureText) {
+  _InputFieldState(bool obscureText) {
     obscure = obscureText;
   }
 

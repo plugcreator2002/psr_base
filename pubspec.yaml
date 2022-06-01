@@ -1,5 +1,5 @@
 name: psr_base
-description: A new Flutter plugin project.
+description: Projects Sources Requirement For Dornica
 version: 0.0.1
 homepage:
 
@@ -8,20 +8,20 @@ environment:
   flutter: ">=2.5.0"
 
 dependencies:
-  device_info_plus: ^3.2.3
+  device_info_plus:
   flutter:
     sdk: flutter
-  image_picker: ^0.8.5+3
-  intl: ^0.17.0
-  package_info_plus: ^1.4.2
-  path: ^1.8.1
-  path_provider: ^2.0.10
-  permission_handler: ^9.2.0
-  plugin_platform_interface: ^2.0.2
-  responsive_builder: ^0.4.2
-  shared_preferences: ^2.0.15
-  sliding_sheet: ^0.5.2
-  web_socket_channel: ^2.2.0
+  image_picker:
+  intl:
+  package_info_plus:
+  path:
+  path_provider:
+  permission_handler:
+  plugin_platform_interface:
+  responsive_builder:
+  shared_preferences:
+  sliding_sheet:
+  web_socket_channel:
 
 dev_dependencies:
   flutter_test:
