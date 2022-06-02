@@ -7,7 +7,6 @@
 
 
 #### Let me tell you parts of plugin
-#### Please check the index files
 
 .
 .
