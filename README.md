@@ -10,3 +10,7 @@
 
 * Let me tell you parts of plugin
 * Please check the index files
+
+
+document forms_builder
+lib/plugin_emulators/forms_builder/document.md
