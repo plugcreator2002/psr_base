@@ -16,3 +16,5 @@
 
 # document forms_builder
 lib/plugin_emulators/forms_builder/document.md
+
+[a link](https://github.com/user/repo/blob/branch/other_file.md)
