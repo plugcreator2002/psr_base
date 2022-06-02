@@ -43,7 +43,7 @@ class CustomField<T> extends StatelessWidget {
       /// when u want change the value
       /// u have too call [state.didChange(new data)] in [childFeild] function
       childFeild: (state) {
-        /// if in ur widget has no [InputDecorator]
+        /// if in your widget has no [InputDecorator]
         /// we call [InputDecorator]
         if (widgetType == WidgetType.other) {
           return InputDecorator(

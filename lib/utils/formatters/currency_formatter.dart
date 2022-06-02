@@ -87,8 +87,8 @@ class CurrencyFormatter extends TextInputFormatter {
 
     String output = _newNum.toString();
 
-    if (this.maxLength != null && output.length > this.maxLength!) {
-      output = output.substring(0, this.maxLength);
+    if (maxLength != null && output.length > maxLength!) {
+      output = output.substring(0, maxLength);
     }
 
     _newString =

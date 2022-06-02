@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_string_escapes
+
 class Regulars {
   static final numberRegular = RegExp(
     r"[0-9]",

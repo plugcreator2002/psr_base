@@ -210,6 +210,7 @@ class FormValidators {
       if (isTrue(candidate?.isNotEmpty) && number == null) {
         return error ?? FormLocalizations.of(context).integerError;
       }
+      return null;
     };
   }
 

@@ -1,5 +1,3 @@
-// Single selection model
-
 import 'package:flutter/cupertino.dart';
 
 class SingleSelectionModel<T> {

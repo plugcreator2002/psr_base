@@ -4,18 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:psr_base/plugin_emulators/forms_builder/widgets/base_fields/form_builder_input_field.dart';
 import 'package:psr_base/ui_related/feilds_title.dart';
+import 'package:psr_base/plugin_emulators/forms_builder/utils/form_builder_validators.dart';
 
 class InputField extends StatefulWidget {
+  /// [name] -> field id
+  final String name;
+
+  /// [data] -> your initial data
+  final String? data;
+
+  /// [onChanged] -> when you change your field data
+  /// you can get new data from [onChanged] callback
   final void Function(String content) onChanged;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
-  final String? label;
   final bool obscureText;
   final bool isPassword;
   final TextInputAction textInputAction;
-  final String name;
-  final String? data;
+
+  /// [validator] -> you can use [FormValidators] for validate your field
   final String? Function(String? data)? validator;
+
+  /// [title] -> if [title] not be a null, you have [title] on your field.
   final String? title;
   final TextInputType keyboardType;
   final List<TextInputFormatter> inputFormatters;
@@ -28,7 +38,6 @@ class InputField extends StatefulWidget {
     required this.onChanged,
     this.prefixIcon,
     this.hintText,
-    this.label,
     this.obscureText = false,
     this.isPassword = false,
     this.textInputAction = TextInputAction.done,
