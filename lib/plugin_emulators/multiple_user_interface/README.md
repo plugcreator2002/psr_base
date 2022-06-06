@@ -13,7 +13,7 @@
                     mobile: OrientationLayout(
                       portrait: SizedBox(),
                       landscape: SizedBox(),
-                    ),
+                    )
                 ),
             );
         }
