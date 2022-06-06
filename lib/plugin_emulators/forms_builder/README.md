@@ -1,4 +1,4 @@
-#### forms builder plugin it's for create forms with any fields with cool validation
+#### forms_builder plugin it's for create forms with any fields with cool validation
 
 #### import this line
     import 'package:psr_base/plugin_emulators/forms_builder/index.dart';

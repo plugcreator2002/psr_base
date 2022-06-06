@@ -5,5 +5,5 @@
   So i created a folder and import plugin emulators on there
 */
 
-export './multiple_ui/index.dart';
+export './multiple_user_interface/index.dart';
 export './forms_builder/index.dart';
