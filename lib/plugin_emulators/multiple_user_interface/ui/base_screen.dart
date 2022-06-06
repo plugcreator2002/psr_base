@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:psr_base/index.dart'
-    show SafeState, SizingInformation, DeviceType;
+import 'package:psr_base/index.dart' show SafeState, SizingInformation, DeviceType;
 
 class BaseWidgets extends StatefulWidget {
   final Widget Function(
