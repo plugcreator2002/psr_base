@@ -12,18 +12,18 @@
 
 
 #### project structure
-    your_project/
-      assets/
-      lib/
+your_project/
+  assets/
+  lib/
+    components/
+    views/
+      login/
+        login.dart
         components/
         views/
-          login/
-            login.dart
-            components/
-            views/
-              mobile/login_mobile.dart
-              tablet/login_tablet.dart
-              desktop/login_desktop.dart
+          mobile/login_mobile.dart
+          tablet/login_tablet.dart
+          desktop/login_desktop.dart
 
 
 #### ⚪ If you want to use forms builder emulator, please read the [forms_builder](https://github.com/plugcreator2002/psr_base/blob/main/lib/plugin_emulators/forms_builder/README.md)
