@@ -38,4 +38,4 @@
 #### ⚪ If you want to use multiple user interface emulator, please read the [multiple_user_interface](https://github.com/plugcreator2002/psr_base/blob/main/lib/plugin_emulators/multiple_user_interface/README.md)
 
 
-#### ⚪ see [lib/ui_related/builders](https://github.com/plugcreator2002/psr_base/tree/main/lib/ui_related/builders)
+#### ⚪ see [lib/ui_related/index.dart](https://github.com/plugcreator2002/psr_base/tree/main/lib/ui_related/index.dart)
