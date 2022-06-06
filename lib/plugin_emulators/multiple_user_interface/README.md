@@ -6,12 +6,14 @@
 #### if you want separate the pages -> first use this
     BaseWidgets(
         builder: (context, information) {
-            return ScreenTypeLayout(
-                desktop: Scaffold(backgroundColor: Colors.white),
-                tablet: SizedBox(),
-                mobile: OrientationLayout(
-                  portrait: SizedBox(),
-                  landscape: SizedBox(),
+            return Scaffold(
+                body: ScreenTypeLayout(
+                    desktop: SizedBox(),
+                    tablet: SizedBox(),
+                    mobile: OrientationLayout(
+                      portrait: SizedBox(),
+                      landscape: SizedBox(),
+                    ),
                 ),
             );
         }
