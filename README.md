@@ -12,16 +12,16 @@
 
 
 #### project structure
-    your_project/ -> [
-      assets/ -> []
-      lib/ -> [
-        components/ -> []
-        views/ -> [
-          home/ -> []
-          login/ -> [
+    your_project -> [
+      assets -> []
+      lib -> [
+        components -> []
+        views -> [
+          home -> []
+          login -> [
             login.dart
-            components/ -> []
-            views/ -> [
+            components -> []
+            views -> [
               mobile/login_mobile.dart
               tablet/login_tablet.dart
               desktop/login_desktop.dart
