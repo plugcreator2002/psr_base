@@ -7,9 +7,9 @@
         components/
         views/
           login/
+            login.dart
             components/
             views/
-              login.dart
               mobile/login_mobile.dart
               tablet/login_tablet.dart
               desktop/login_desktop.dart
