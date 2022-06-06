@@ -1,5 +1,19 @@
 #### multiple_user_interface is to separate the appearance of tablet, mobile and desktop
 
+#### project structure
+    your_project/
+      assets/
+      lib/
+        components/
+        views/
+          login/
+            components/
+            views/
+              login.dart
+              mobile/login_mobile.dart
+              tablet/login_tablet.dart
+              desktop/login_desktop.dart
+
 #### import this line
     import 'package:psr_base/plugin_emulators/multiple_user_interface/index.dart';
 
@@ -8,12 +22,18 @@
         builder: (context, information) {
             return Scaffold(
                 body: ScreenTypeLayout(
-                    desktop: SizedBox(),
-                    tablet: SizedBox(),
+                    desktop: OrientationLayout(
+                      portrait: LoginDesktop(),
+                      landscape: LoginDesktop(),
+                    ),
+                    tablet: OrientationLayout(
+                      portrait: LoginTablet(),
+                      landscape: LoginTablet(),
+                    ),
                     mobile: OrientationLayout(
-                      portrait: SizedBox(),
-                      landscape: SizedBox(),
-                    )
+                      portrait: LoginMobile(),
+                      landscape: LoginMobile(),
+                    ),
                 ),
             );
         }
