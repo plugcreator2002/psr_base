@@ -11,4 +11,7 @@
 .........................................................................................................................................................................
 
 
-#### ⚪ If you want to use forms_builder emulator, please read the [forms_builder](https://github.com/plugcreator2002/psr_base/blob/main/lib/plugin_emulators/forms_builder/README.md)
+#### ⚪ If you want to use forms builder emulator, please read the [forms_builder](https://github.com/plugcreator2002/psr_base/blob/main/lib/plugin_emulators/forms_builder/README.md)
+
+
+#### ⚪ If you want to use multiple user interface emulator, please read the [multiple_user_interface](https://github.com/plugcreator2002/psr_base/blob/main/lib/plugin_emulators/multiple_user_interface/README.md)
