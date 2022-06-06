@@ -1,18 +1,18 @@
-#### forms_builder plugin it's for create forms with any fields with cool validation
++ #### forms_builder plugin it's for create forms with any fields with cool validation
 
-#### import this line
++ #### import this line
     import 'package:psr_base/plugin_emulators/forms_builder/index.dart';
 
-#### form fields shaker controller
++ #### form fields shaker controller
     final shaker = ShakeController();
 
-#### form key
++ #### form key
     final _stateKey = GlobalKey<FormBuilderState>();
 
-#### initial values
++ #### initial values
     String username = "";
 
-#### forms body
++ #### forms body
     FormBuilder(
         key: _stateKey,
         shakeController: shaker,
@@ -40,10 +40,10 @@
         ),
     ),
 
-#### enywhere you want validate the fields with shaker -> call this
++ #### enywhere you want validate the fields with shaker -> call this
     final isValids = await shaker.validateShaker(_stateKey);
     if (isValids == true) {}
 
-#### enywhere you want just validate the fields without shaker -> call this
++ #### enywhere you want just validate the fields without shaker -> call this
     final isValids = _stateKey.currentState?.validate();
     if (isValids == true) {}
