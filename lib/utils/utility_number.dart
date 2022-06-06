@@ -2,7 +2,7 @@ class Utility {
   static String extract(String inputString) {
     String number = "";
     inputString = changeDigit(inputString);
-    number = inputString.replaceAll(RegExp(r"[^0-9]"), "");
+    number = inputString.replaceAll(RegExp(r"\D"), "");
     return changeDigit(number);
   }
 

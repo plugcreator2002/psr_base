@@ -1,26 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:psr_base/common/font_models.dart';
 
+/// separate data and pagination
+///
+/// load more data with scroll
 class PaginationBuilder extends StatefulWidget {
-  final Color? backgroundColor;
+
+  /// show loading widget on center page when first data is loading
   final bool loading;
   final bool pagination;
+
+  /// is your list is non!?
+  ///
+  /// if is true, show empty page
   final bool isNon;
+
+  /// the list of widgets can consist of any widget
   final List<Widget> items;
+
+  /// show loading when loading more widget!?
+  ///
+  /// default is true
   final bool morePaging;
   final double? initialScrollOffset;
   final bool reverse;
   final void Function(ScrollUpdateNotification notification)? onNotification;
+
+  /// this function is called whenever new data is loaded
   final void Function(ScrollController? controller)? callback;
   const PaginationBuilder({
     Key? key,
-    this.backgroundColor,
     this.callback,
-    this.loading = false,
+    this.loading = true,
     this.pagination = true,
     this.isNon = false,
     this.items = const <Widget>[],
-    this.morePaging = false,
+    this.morePaging = true,
     this.onNotification,
     this.initialScrollOffset,
     this.reverse = false,
@@ -110,10 +125,10 @@ class _PaginationBuilderState extends State<PaginationBuilder> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                "assets/emoji.png",
-                width: 100,
-              ),
+              // Image.asset(
+              //   "assets/emoji.png",
+              //   width: 100,
+              // ),
               const SizedBox(height: 8),
               const Text(
                 "متاسفانه چیزی یافت نشد",

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:psr_base/index.dart' show HandleNullable;
 
+/// hold the widget -> the widget will be blurred
+///
+/// like normal clicking
 class FadingButton extends StatefulWidget {
   final Widget child;
   final void Function()? onLongPressEnd;
