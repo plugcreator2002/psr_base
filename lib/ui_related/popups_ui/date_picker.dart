@@ -1,20 +1,27 @@
-// import "package:flutter/material.dart";
-// import 'package:template/utils/datepicker/date_model.dart';
+import 'package:flutter/cupertino.dart';
+import "package:flutter/material.dart";
+import 'package:psr_base/ui_related/datepicker/date_model.dart';
 
-// // ignore: must_be_immutable
-// class DatePickerUi extends StatelessWidget {
-//   final String? value;
-//   const DatePickerUi({Key? key, this.value}) : super(key: key);
+class DatePickerUi extends StatelessWidget {
+  final String? initialDate;
+  final bool isJalali;
+  const DatePickerUi({
+    Key? key,
+    this.initialDate,
+    this.isJalali = true,
+  }) : super(key: key);
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return LinearDatePicker(
-//       initialDate: (value ?? "").replaceAll("-", "/"),
-//       dateChangeListener: (String selectedDate) {},
-//       showMonthName: true,
-//       startDate: "1350/01/01",
-//       endDate: "1450/01/01",
-//       isJalali: true,
-//     );
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return LinearDatePicker(
+      initialDate: (initialDate ?? "").replaceAll("-", "/"),
+      showMonthName: true,
+      startDate: "1350/01/01",
+      endDate: "1450/01/01",
+      isJalali: isJalali,
+      dateChangeListener: (selectedDate) {
+        Navigator.pop(context, selectedDate);
+      },
+    );
+  }
+}

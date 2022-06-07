@@ -19,6 +19,7 @@ dependencies:
   permission_handler:
   plugin_platform_interface:
   responsive_builder:
+  shamsi_date: ^1.0.1
   shared_preferences:
   sliding_sheet:
   web_socket_channel:

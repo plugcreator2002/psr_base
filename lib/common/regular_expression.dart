@@ -1,5 +1,4 @@
-// ignore_for_file: unnecessary_string_escapes
-
+/// All Regular Expression to used in the plugin
 class Regulars {
   static final numberRegular = RegExp(
     r"[0-9]",

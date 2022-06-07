@@ -1,7 +1,9 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import "package:permission_handler/permission_handler.dart";
 
-// use this class when u need access any permission
+/// use this class when u need access any permission
+///
+/// control on different versions
 class ManagePermission {
   static Future<bool> request({
     final bool openSetting = true,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:psr_base/index.dart' show FormBuilderState;
 
+/// This is to control the shaking of your widgets
 class ShakeController {
   final Map<String, void Function()> _listeners = {};
 
