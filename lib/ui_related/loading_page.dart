@@ -12,8 +12,8 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (loading) {
-      return GestureDetector(
-        onTap: () {},
+      return AbsorbPointer(
+        absorbing: loading,
         child: Opacity(
           opacity: 0.5,
           child: child,
