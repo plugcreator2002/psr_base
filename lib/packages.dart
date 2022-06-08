@@ -5,3 +5,5 @@ export "package:intl/intl.dart";
 export 'package:image_picker/image_picker.dart';
 export 'package:web_socket_channel/web_socket_channel.dart';
 export 'package:shared_preferences/shared_preferences.dart';
+export 'package:hive/hive.dart';
+export 'package:hive_flutter/hive_flutter.dart';

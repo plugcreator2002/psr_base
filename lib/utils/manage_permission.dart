@@ -1,4 +1,4 @@
-import 'package:device_info_plus/device_info_plus.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import "package:permission_handler/permission_handler.dart";
 
 /// use this class when u need access any permission
@@ -9,9 +9,8 @@ class ManagePermission {
     final bool openSetting = true,
     final Permission? permission,
   }) async {
-    final info = await DeviceInfoPlugin().androidInfo;
-    if (info.version.release == null) return false;
-    final release = int.parse(info.version.release?.split(".")[0] ?? "");
+    final info = await PackageInfo.fromPlatform();
+    final release = int.parse(info.version.split(".")[0]);
     Permission hasPermission = permission ?? Permission.storage;
     if (permission == null && openSetting && release > 10) {
       hasPermission = Permission.manageExternalStorage;
