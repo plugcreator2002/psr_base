@@ -136,10 +136,10 @@ class FormValidators {
     String? error,
   }) {
     return (candidate) {
-      if (isTrue(candidate?.isNotEmpty) && isTrue(candidate?.trim().isEmail)) {
-        return error ?? FormLocalizations.of(context).emailErrorText;
+      if (isTrue(candidate?.trim().isEmail)) {
+        return null;
       }
-      return null;
+      return error ?? FormLocalizations.of(context).emailErrorText;
     };
   }
 
@@ -298,10 +298,10 @@ class FormValidators {
     String? error,
   }) {
     return (candidate) {
-      if (isTrue(candidate?.isNotEmpty) && isTrue(candidate?.isDate)) {
-        return error ?? FormLocalizations.of(context).dateStringError;
+      if (isTrue(candidate?.isDate)) {
+        return null;
       }
-      return null;
+      return error ?? FormLocalizations.of(context).dateStringError;
     };
   }
 }
