@@ -7,6 +7,7 @@ import "dart:math" as math;
 import "package:flutter/rendering.dart";
 import "package:flutter/services.dart";
 import 'package:psr_base/common/font_models.dart';
+import 'package:psr_base/ui_related/animation/fading_button.dart';
 import 'package:shamsi_date/shamsi_date.dart';
 
 class LinearDatePicker extends StatefulWidget {
@@ -236,8 +237,8 @@ class LinearDatePickerState extends State<LinearDatePicker> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            FlatButton(
-              onPressed: () {
+            FadingButton(
+              onLongPressEnd: () {
                 Navigator.of(context).pop(
                   "$_selectedYear-$_selectedMonth-$_selectedDay",
                 );
@@ -252,8 +253,8 @@ class LinearDatePickerState extends State<LinearDatePicker> {
                 ),
               ),
             ),
-            FlatButton(
-              onPressed: () => Navigator.of(context).pop(),
+            FadingButton(
+              onLongPressEnd: () => Navigator.of(context).pop(),
               child: const Text(
                 "لغو",
                 style: TextStyle(
@@ -921,13 +922,13 @@ class _NumberPickerDialogControllerState extends State<NumberPickerDialog> {
       titlePadding: widget.titlePadding,
       content: _buildNumberPicker(),
       actions: [
-        FlatButton(
-          onPressed: () => Navigator.of(context).pop(),
+        FadingButton(
+          onLongPressEnd: () => Navigator.of(context).pop(),
           child: widget.cancelWidget,
         ),
-        FlatButton(
+        FadingButton(
           child: widget.confirmWidget,
-          onPressed: () {
+          onLongPressEnd: () {
             Navigator.of(context).pop(
               widget.decimalPlaces > 0 ? selectedDoubleValue : selectedIntValue,
             );

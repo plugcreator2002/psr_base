@@ -3,8 +3,7 @@ import "dart:io";
 
 import 'package:package_info_plus/package_info_plus.dart' show PackageInfo;
 import 'package:path/path.dart' show basename;
-import 'package:path_provider/path_provider.dart'
-    show getExternalStorageDirectory;
+import 'package:path_provider/path_provider.dart' show getExternalStorageDirectory;
 import 'package:psr_base/utils/manage_permission.dart';
 
 class DirectoriesModel {

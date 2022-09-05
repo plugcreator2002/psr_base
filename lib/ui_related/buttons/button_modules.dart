@@ -1,8 +1,9 @@
 // ignore_for_file: deprecated_member_use
 
 import "package:flutter/material.dart";
+import 'package:psr_base/ui_related/animation/fading_button.dart';
 
-class ButtonModules extends StatefulWidget {
+class ButtonModules extends StatelessWidget {
   final IconData? icon;
   final String label;
   final Color color;
@@ -10,6 +11,15 @@ class ButtonModules extends StatefulWidget {
   final Future<bool>? future;
   final double? fontSize;
   final double? height;
+  final double? width;
+
+  final Color? bgColor;
+  final Color? borderColor;
+  final Color? labelColor;
+  final double? iconSize;
+  final double? headSize;
+  final BorderRadiusGeometry? borderRadius;
+
   const ButtonModules({
     Key? key,
     this.icon,
@@ -19,17 +29,19 @@ class ButtonModules extends StatefulWidget {
     this.future,
     this.fontSize,
     this.height,
+    this.width,
+    this.bgColor,
+    this.borderColor,
+    this.labelColor,
+    this.iconSize,
+    this.headSize,
+    this.borderRadius,
   }) : super(key: key);
 
-  @override
-  State<ButtonModules> createState() => _ButtonModulesState();
-}
-
-class _ButtonModulesState extends State<ButtonModules> {
   Widget? get _icon {
-    if (widget.icon != null) {
+    if (icon != null) {
       return Icon(
-        widget.icon,
+        icon,
         size: 22,
         color: Colors.white,
       );
@@ -54,49 +66,49 @@ class _ButtonModulesState extends State<ButtonModules> {
     return null;
   }
 
-  Color? _splashColor(final bool data) {
-    if (data == true) return Colors.transparent;
-    return null;
-  }
-
   void _onPressed(final bool data) {
     if (data != true) {
-      widget.onTap();
+      onTap();
     }
   }
 
-  @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool>(
-      future: widget.future,
+      future: future,
       builder: (context, snapshot) {
-        return FlatButton(
-          color: widget.color,
-          height: widget.height ?? 50,
-          onPressed: () => _onPressed(snapshot.data ?? false),
-          splashColor: _splashColor(snapshot.data ?? false),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 6,
-            vertical: 4,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(7),
-          ),
-          child: Row(
-            children: [
-              _icon,
-              Expanded(
-                child: Text(
-                  widget.label,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: widget.fontSize ?? 15,
-                    color: Colors.white,
+        return FadingButton(
+          onLongPressEnd: () => _onPressed(snapshot.data ?? false),
+          child: Container(
+            height: (height ?? 33).toDouble(),
+            width: width?.toDouble(),
+            padding: const EdgeInsets.symmetric(
+              vertical: 5,
+              horizontal: 8,
+            ),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(7),
+              border: Border.all(
+                width: 1,
+                color: borderColor ?? bgColor ?? Colors.transparent,
+              ),
+            ),
+            child: Row(
+              children: [
+                _icon,
+                Expanded(
+                  child: Text(
+                    label,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: fontSize ?? 15,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              _loading(snapshot.data ?? false),
-            ].whereType<Widget>().toList(),
+                _loading(snapshot.data ?? false),
+              ].whereType<Widget>().toList(),
+            ),
           ),
         );
       },

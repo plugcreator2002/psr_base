@@ -25,6 +25,9 @@ dependencies:
   sliding_sheet:
   web_socket_channel:
   hive_generator:
+  google_maps_flutter: ^2.1.8
+  flutter_polyline_points: ^1.0.0
+  geolocator: ^9.0.1
 
 dev_dependencies:
   flutter_test:

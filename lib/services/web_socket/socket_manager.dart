@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 class SocketManager {
   // Socket connection
-  WebSocketChannel? _socket;
+  IOWebSocketChannel? _socket;
   void Function(String)? onConnect;
   void Function()? onDone;
   void Function(dynamic)? onError;
@@ -15,7 +16,7 @@ class SocketManager {
   /// Set address of socket connection
   set address(String value) {
     _address = value;
-    _socket = WebSocketChannel.connect(
+    _socket = IOWebSocketChannel.connect(
       Uri.parse(value),
     );
     _socket?.stream.timeout(const Duration(hours: 5));
@@ -33,7 +34,7 @@ class SocketManager {
   Future<void> waitForResult(
     String event, {
     Map<String, dynamic> initialData = const {},
-    required void Function(dynamic) callBack,
+    required void Function(String keyReceived, dynamic) callBack,
   }) async {
     _once.addAll({event: callBack});
 
@@ -80,7 +81,7 @@ class SocketManager {
   void addListener({
     required String event,
     required String key,
-    required void Function(dynamic) listener,
+    required void Function(String keyReceived, dynamic) listener,
   }) {
     // If event where new it will be added to socket listeners
     if (!_listeners.keys.contains(event)) {
@@ -104,13 +105,13 @@ class SocketManager {
   Future<void> _callListenersOn(String event, dynamic data) async {
     if (_listeners.keys.contains(event)) {
       for (final listener in (_listeners[event] ?? {}).values) {
-        listener(data);
+        listener(event, data);
       }
     }
     if (_once.keys.contains(event)) {
       final listener = _once[event]!;
       _once.remove(event);
-      listener(data);
+      listener(event, data);
     }
   }
 
@@ -128,8 +129,10 @@ class SocketManager {
     return result;
   }
 
-  final Map<String, void Function(dynamic)> _once = {};
-  final Map<String, Map<String, void Function(dynamic)>> _listeners = {};
+  final Map<String, void Function(String, dynamic)> _once = {};
+  final Map<String, Map<String, void Function(String, dynamic)>> _listeners = {};
 
-  Map<String, Map<String, void Function(dynamic)>> get listeners => _listeners;
+  Map<String, Map<String, void Function(String, dynamic)>> get listeners {
+    return _listeners;
+  }
 }

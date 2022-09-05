@@ -44,35 +44,6 @@ mixin LiveWire implements ILiveWire {
     );
   }
 
-  /// Connect object to socket with event name and listener key+random value
-  ///
-  /// if you set [invokeAtConnect] false you may need to call [emit] manually
-  @override
-  void plugItIn(
-    String event,
-    String? key, [
-    Map<String, dynamic>? invokeData = const {},
-  ]) {
-    socketClient.removeListenerOn(_event, _listenerKey);
-    _event = event;
-    final randomValue = Random.secure().nextInt(5555555);
-    _listenerKey = "${key ?? '_'}$randomValue";
-    socketClient.addListener(
-      event: event,
-      key: _listenerKey,
-      listener: updateFromMap,
-    );
-    if (invokeData != null) {
-      emit(invokeData);
-    }
-  }
-
-  /// Disconnect object from socket
-  @override
-  bool unplug() {
-    return socketClient.removeListenerOn(_event, _listenerKey);
-  }
-
   /// Sends data into socket with this event
   @override
   void emit([Map<String, dynamic> data = const {}]) {
@@ -87,12 +58,6 @@ abstract class ILiveWire {
   /// emits data into [socketClient] on this [LiveWire]
   void emit([Map<String, dynamic> data]);
 
-  /// disconnects live wire from [socketClient]
-  bool unplug();
-
-  /// connects live wire to the [socketClient]
-  void plugItIn(String event, String? key, [Map<String, dynamic>? invokeData]);
-
   /// Update value from map comes from socket
-  void updateFromMap(dynamic data);
+  void updateFromMap(String eventReceived, dynamic data);
 }
