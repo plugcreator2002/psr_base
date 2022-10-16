@@ -1,22 +1,34 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
-import 'package:psr_base/index.dart' show CenterPopupsBuilder;
+import 'package:template/config/themes/themes_data.dart';
+import 'package:template/data/repository.dart';
 
 class OpeningPopups {
-  static Future<T?> centerPopup<T>(
-    final BuildContext context, {
-    required final Widget child,
-    final void Function()? callback,
-    final bool withoutBackground = false,
+  static Future<T?> centerPopup<T>(final BuildContext context, {
+    final Widget? child,
+    final Widget? desktop,
+    final Widget? mobile,
+    final Widget? tablet,
+    final bool dismissible = true,
   }) {
-    final output = showDialog<T>(
+    final output = showCupertinoDialog<T>(
       context: context,
-      builder: (BuildContext context) {
-        if (withoutBackground) return child;
-        return CenterPopupsBuilder(
-          callback: callback ?? () => Navigator.pop(context),
-          child: child,
+      barrierDismissible: dismissible,
+      builder: (context) {
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 50),
+              child: Center(
+                child: Material(
+                  borderRadius: BorderRadius.circular(11),
+                  child: child,
+                ),
+              ),
+            );
+          },
         );
       },
     );
@@ -24,8 +36,7 @@ class OpeningPopups {
     return output;
   }
 
-  static Future<T?> showBottomPopup<T>(
-    final BuildContext context, {
+  static Future<T?> showBottomPopup<T>(final BuildContext context, {
     required final Widget view,
   }) async {
     FocusScope.of(context).unfocus();
@@ -59,14 +70,31 @@ class OpeningPopups {
     return data;
   }
 
-  static void showToast(BuildContext context, String message) {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+  static void showToast(BuildContext context,
+      String message, {
+        SnackBarAction? snackBarAction,
+        EdgeInsetsGeometry? margin,
+        Color? backgroundColor,
+        Color? contentColor,
+        Duration duration = const Duration(milliseconds: 4000),
+      }) {
+    final theme = Theme.of(context);
+    const defualtMargin = EdgeInsets.symmetric(horizontal: 322, vertical: 20);
+
+    ScaffoldMessenger.of(
+        context
+    ).showSnackBar(SnackBar(
+      duration: duration,
+      backgroundColor: backgroundColor ?? theme.colorScheme.successColor,
+      margin: margin ?? defualtMargin,
+      behavior: SnackBarBehavior.floating,
+      action: snackBarAction,
       content: Text(
         message,
-        style: const TextStyle(
-          fontFamily: "yekan",
-          color: Colors.white,
-          fontSize: 13,
+        textAlign: TextAlign.center,
+        style: theme.textTheme.bodyText2?.copyWith(
+          fontSize: 12,
+          color: contentColor ?? theme.colorScheme.systemColor,
         ),
       ),
     ));
