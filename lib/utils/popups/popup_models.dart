@@ -24,7 +24,6 @@ class PopUpOpeners {
   ) async {
     final result = await OpeningPopups.centerPopup<T>(
       context,
-      withoutBackground: true,
       child: Question(label: title),
     );
     return result;

@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sliding_sheet/sliding_sheet.dart';
-import 'package:template/config/themes/themes_data.dart';
-import 'package:template/data/repository.dart';
 
 class OpeningPopups {
   static Future<T?> centerPopup<T>(final BuildContext context, {
@@ -85,7 +83,7 @@ class OpeningPopups {
         context
     ).showSnackBar(SnackBar(
       duration: duration,
-      backgroundColor: backgroundColor ?? theme.colorScheme.successColor,
+      backgroundColor: backgroundColor,
       margin: margin ?? defualtMargin,
       behavior: SnackBarBehavior.floating,
       action: snackBarAction,
@@ -94,7 +92,7 @@ class OpeningPopups {
         textAlign: TextAlign.center,
         style: theme.textTheme.bodyText2?.copyWith(
           fontSize: 12,
-          color: contentColor ?? theme.colorScheme.systemColor,
+          color: contentColor,
         ),
       ),
     ));
