@@ -39,6 +39,7 @@ class OpeningPopups {
   static Future<T?> showBottomPopup<T>(
     final BuildContext context, {
     required final Widget view,
+    Duration? duration,
   }) async {
     FocusScope.of(context).unfocus();
     SystemChannels.textInput.invokeMethod('TextInput.hide');
@@ -47,7 +48,7 @@ class OpeningPopups {
       context,
       builder: (context) {
         return SlidingSheetDialog(
-          duration: const Duration(milliseconds: 250),
+          duration: duration ?? const Duration(milliseconds: 250),
           elevation: 20,
           cornerRadius: 10,
           snapSpec: const SnapSpec(
@@ -56,10 +57,10 @@ class OpeningPopups {
             positioning: SnapPositioning.relativeToSheetHeight,
           ),
           builder: (context, state) {
-            return Material(
-              color: Colors.transparent,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
+            return Padding(
+              padding: const EdgeInsets.all(10),
+              child: Material(
+                color: Colors.transparent,
                 child: view,
               ),
             );
